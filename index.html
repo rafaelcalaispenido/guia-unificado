@@ -971,7 +971,7 @@
                 <li><strong>Autenticar com Usuário e Senha:</strong> série entre <strong>80.000 a 89.999</strong>.</li>
               </ul>
             </div>
-            <div class="note-box">Dúvidas? Acesse o <a href="https://atendimento.enotas.com.br/hc/pt-br/articles/35773771326349" target="_blank">artigo completo</a> sobre dados municipais.</div>
+            <div class="note-box">Dúvidas? Acesse o <a href="https://atendimento.enotas.com.br/hc/pt-br/articles/35774188189965" target="_blank">artigo completo</a>.</div>
 
             <hr class="sec-sep">
             <div class="cert-box">
@@ -1017,7 +1017,7 @@
 
         <!-- ─ TAB: NF-e ─ -->
         <div class="tab-panel" id="tab-nfe">
-          <div class="note-box"><strong>Reforma Tributária:</strong> A partir de 01/01/2026, foi adicionado o campo <strong>Classificação Tributária/CST (IBS/CBS)</strong> para configuração da nota de produto.</div>
+          <div class="note-box">Como você irá emitir nota fiscal de produto (NF-e), precisamos que valide a situação da sua inscrição estadual no Cadastro Centralizado de Contribuintes (CCC). Para mais informações, <a href="#" onclick="event.preventDefault();openCCCModal()">clique aqui</a>.</div>
           <ol class="col" style="margin-top:14px;">
             <li>Acesse sua conta <a href="https://app.enotas.com.br/" target="_blank">eNotas</a>.</li>
             <li>Vá em <strong>Empresa</strong> → <strong>Configurar conta</strong> ou <strong>Alterar Cadastro</strong>.</li>
@@ -1027,7 +1027,7 @@
           <ul class="cul"><li>Inscrição Estadual</li><li>Porte da Empresa</li><li>Regime de Tributação e Optante do Simples Nacional</li><li>Tipo de nota que irá emitir</li><li>Série / Nº próxima nota / Lote</li><li>Tipo de nota padrão para novos produtos</li><li>Produto padrão ou NF-e padrão para produto físico</li></ul>
           <div class="img-wrap"><img src="images/gif_6.gif" alt="Config NF-e"><button class="img-zoom-btn" onclick="openLightbox(this.parentElement.querySelector('img').src)"><svg width="14" height="14" stroke="#555"><use href="#ic-zoom"/></svg></button></div>
           <p class="img-caption">Imagem meramente ilustrativa. Consulte a sua contabilidade.</p>
-          <div class="note-box">Dúvidas? Acesse o <a href="https://atendimento.enotas.com.br/hc/pt-br/articles/35773343446541" target="_blank">artigo completo</a> sobre NF-e.</div>
+          <div class="note-box">Dúvidas? Acesse o <a href="https://atendimento.enotas.com.br/hc/pt-br/articles/35773771326349" target="_blank">artigo completo</a> sobre NF-e.</div>
 
           <hr class="sec-sep">
           <div class="cert-box">
@@ -1104,7 +1104,7 @@
                     <li><strong>Autenticar com Usuário e Senha:</strong> série entre <strong>80.000 a 89.999</strong>.</li>
                   </ul>
                 </div>
-                <div class="note-box">Dúvidas? Acesse o <a href="https://atendimento.enotas.com.br/hc/pt-br/articles/35773771326349" target="_blank">artigo completo</a> sobre dados municipais.</div>
+                <div class="note-box">Dúvidas? Acesse o <a href="https://atendimento.enotas.com.br/hc/pt-br/articles/35774188189965" target="_blank">artigo completo</a>.</div>
               </div>
 
               <!-- SubTab: Própria Prefeitura -->
@@ -1136,7 +1136,7 @@
               <svg class="acc-arrow" width="16" height="16"><use href="#ic-chevron"/></svg>
             </div>
             <div class="accordion-body" id="acc-split-nfe-body">
-              <div class="note-box"><strong>Reforma Tributária:</strong> A partir de 01/01/2026, foi adicionado o campo <strong>Classificação Tributária/CST (IBS/CBS)</strong> para configuração da nota de produto.</div>
+              <div class="note-box">Como você irá emitir nota fiscal de produto (NF-e), precisamos que valide a situação da sua inscrição estadual no Cadastro Centralizado de Contribuintes (CCC). Para mais informações, <a href="#" onclick="event.preventDefault();openCCCModal()">clique aqui</a>.</div>
               <ol class="col" style="margin-top:14px;">
                 <li>Acesse sua conta <a href="https://app.enotas.com.br/" target="_blank">eNotas</a>.</li>
                 <li>Vá em <strong>Empresa</strong> → <strong>Configurar conta</strong> ou <strong>Alterar Cadastro</strong>.</li>
@@ -1146,7 +1146,7 @@
               <ul class="cul"><li>Inscrição Estadual</li><li>Porte da Empresa</li><li>Regime de Tributação e Optante do Simples Nacional</li><li>Tipo de nota que irá emitir</li><li>Série / Nº próxima nota / Lote</li><li>Tipo de nota padrão para novos produtos</li><li>Produto padrão ou NF-e padrão para produto físico</li><li><strong>Ajuste de percentual para cada nota</strong> — determine a divisão de serviço vs. produto em cada venda</li></ul>
               <div class="img-wrap"><img src="images/gif_7.gif" alt="Ajuste de percentual Split"><button class="img-zoom-btn" onclick="openLightbox(this.parentElement.querySelector('img').src)"><svg width="14" height="14" stroke="#555"><use href="#ic-zoom"/></svg></button></div>
               <p class="img-caption">Imagem meramente ilustrativa. Consulte a sua contabilidade.</p>
-              <div class="note-box">Dúvidas? Acesse o <a href="https://atendimento.enotas.com.br/hc/pt-br/articles/35773343446541" target="_blank">artigo completo</a> sobre NF-e.</div>
+              <div class="note-box">Dúvidas? Acesse o <a href="https://atendimento.enotas.com.br/hc/pt-br/articles/35773771326349" target="_blank">artigo completo</a> sobre NF-e.</div>
             </div>
           </div>
 
@@ -1292,6 +1292,31 @@
 </div>
 
 <!-- MODAL: FAQ -->
+<div class="overlay" id="cccOverlay" onclick="if(event.target===this)closeCCCModal()">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="modal-title">Cadastro Centralizado de Contribuintes (CCC)</span>
+      <button class="modal-close" onclick="closeCCCModal()">x</button>
+    </div>
+    <div class="modal-body">
+      <p>Acesse o <a href="https://dfe-portal.svrs.rs.gov.br/Nfe/Ccc" target="_blank"><strong>DFE Portal</strong></a> e siga os passos abaixo:</p>
+      <ol class="modal-steps">
+        <li>Selecione a UF da empresa;</li>
+        <li>Informe o CNPJ;</li>
+        <li>Clique em <strong>"Pesquisar por CNPJ"</strong>.</li>
+      </ol>
+      <p style="margin-top:16px;">Verifique se o campo <strong>"DFe Habilitado"</strong> está preenchido como <strong>NFe</strong>.</p>
+      <div class="note-box" style="margin-top:12px;">
+        <strong>✔ Campo preenchido como "NFe":</strong> está tudo certo para a emissão da Nota Fiscal de Produto.
+      </div>
+      <div class="note-box" style="margin-top:8px;margin-bottom:0;">
+        <strong>✘ Campo em branco:</strong> será necessário entrar em contato com a sua contabilidade ou diretamente com a SEFAZ para solicitar a habilitação.
+      </div>
+    </div>
+    <div class="modal-footer-btn"><button onclick="closeCCCModal()">Fechar</button></div>
+  </div>
+</div>
+
 <div class="overlay" id="faqOverlay" onclick="if(event.target===this)closeFAQ()">
   <div class="modal-box">
     <div class="modal-header">
@@ -1669,6 +1694,8 @@ function toggleHelp() { document.getElementById("helpDD").classList.toggle("open
 function closeHelp() { document.getElementById("helpDD").classList.remove("open"); }
 document.addEventListener("click", e => { const hw = document.querySelector(".help-wrap"); if (hw && !hw.contains(e.target)) closeHelp(); });
 
+function openCCCModal() { document.getElementById("cccOverlay").classList.add("open"); }
+function closeCCCModal() { document.getElementById("cccOverlay").classList.remove("open"); }
 function openFAQ() { document.getElementById("faqOverlay").classList.add("open"); }
 function closeFAQ() { document.getElementById("faqOverlay").classList.remove("open"); }
 
