@@ -1382,8 +1382,9 @@
 </div>
 
 <!-- TUTORIAL: CAMPOS NFS-e -->
-<div class="tutorial-overlay" id="tutOverlay" onclick="if(event.target===this)closeTutorial()">
-  <div class="tutorial-box" onclick="event.stopPropagation()">
+<div class="tutorial-overlay" id="tutOverlay">
+  <div style="position:absolute;inset:0;z-index:0;" onclick="closeTutorial()"></div>
+  <div class="tutorial-box" style="position:relative;z-index:1;" onclick="event.stopPropagation()">
     <div class="tut-header">
       <span class="tut-badge">Tutorial</span>
       <span class="tut-step-label" id="tut-step-lbl">Passo 1 de 9</span>
