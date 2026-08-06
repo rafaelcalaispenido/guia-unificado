@@ -1620,9 +1620,9 @@ function openTutorial() {
   if (zi) { zi.style.transform='translate(0,0) scale(1)'; zi.style.transformOrigin='0 0'; }
   const zh = document.getElementById('tut-nf-hl');
   if (zh) zh.style.display='none';
-  // Size the overlay and box to the real viewport (fixes iframe vh issue)
+  // Size the overlay to the real visible viewport (fixes iframe vh issue)
   const ov = document.getElementById("tutOverlay");
-  const vh = window.innerHeight;
+  const vh = _parentViewportHeight > 0 ? _parentViewportHeight : window.innerHeight;
   ov.style.position = 'fixed';
   ov.style.top = window.scrollY + 'px';
   ov.style.height = vh + 'px';
@@ -1778,6 +1778,14 @@ function togglePorteInfoSplit() {
 }
 
 var _modalOpen = false;
+var _parentViewportHeight = 0;
+
+window.addEventListener('message', function(e) {
+  if (e.data && e.data.type === 'viewport') {
+    _parentViewportHeight = e.data.height;
+  }
+});
+
 function sendHeight() {
   if (_modalOpen) return;
   window.parent.postMessage({ type:"resize", height: document.body.scrollHeight }, "*");
