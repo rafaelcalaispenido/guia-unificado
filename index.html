@@ -560,7 +560,7 @@
        TUTORIAL CAMPOS (index_3 style, 2 cols: NF + desc)
        ════════════════════════════════════════════════ */
     .tutorial-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      position: fixed; inset: 0;
       background: rgba(0,0,0,0.6);
       display: flex; align-items: center; justify-content: center;
       z-index: 1000; opacity: 0; pointer-events: none;
@@ -1621,15 +1621,14 @@ function openTutorial() {
   const zh = document.getElementById('tut-nf-hl');
   if (zh) zh.style.display='none';
   const vh = _parentViewportHeight > 0 ? _parentViewportHeight : window.innerHeight;
-  // Ask parent to expand iframe to full viewport height before opening
+  // Expand iframe to full viewport height (parent handles this)
   window.parent.postMessage({ type: 'modal-open', height: vh }, '*');
+  document.body.style.minHeight = vh + 'px';
   const ov = document.getElementById("tutOverlay");
-  ov.style.top = '0';
-  ov.style.height = vh + 'px';
   const box = ov.querySelector('.tutorial-box');
   if (box) box.style.height = Math.round(vh * 0.88) + 'px';
   ov.classList.add("open");
-  document.body.style.overflow="hidden";
+  document.body.style.overflow = "hidden";
   _modalOpen = true;
   setTimeout(()=>{ renderTutStep(); }, 80);
 }
@@ -1639,7 +1638,8 @@ function closeTutorial() {
   const zh = document.getElementById('tut-nf-hl');
   if (zh) zh.style.display='none';
   document.getElementById("tutOverlay").classList.remove("open");
-  document.body.style.overflow="";
+  document.body.style.overflow = "";
+  document.body.style.minHeight = "";
   _modalOpen = false;
   window.parent.postMessage({ type: 'modal-close' }, '*');
   setTimeout(()=>{ if(zi) zi.style.transition=''; sendHeight(); }, 50);
