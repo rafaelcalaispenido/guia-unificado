@@ -561,7 +561,8 @@
        TUTORIAL CAMPOS (index_3 style, 2 cols: NF + desc)
        ════════════════════════════════════════════════ */
     .tutorial-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
       display: flex; align-items: center; justify-content: center;
       z-index: 1000; opacity: 0; pointer-events: none;
       transition: opacity 0.22s; padding: 16px;
@@ -1619,8 +1620,17 @@ function openTutorial() {
   if (zi) { zi.style.transform='translate(0,0) scale(1)'; zi.style.transformOrigin='0 0'; }
   const zh = document.getElementById('tut-nf-hl');
   if (zh) zh.style.display='none';
-  document.getElementById("tutOverlay").classList.add("open");
+  // Size the overlay and box to the real viewport (fixes iframe vh issue)
+  const ov = document.getElementById("tutOverlay");
+  const vh = window.innerHeight;
+  ov.style.position = 'fixed';
+  ov.style.top = window.scrollY + 'px';
+  ov.style.height = vh + 'px';
+  const box = ov.querySelector('.tutorial-box');
+  if (box) box.style.height = Math.round(vh * 0.88) + 'px';
+  ov.classList.add("open");
   document.body.style.overflow="hidden";
+  _modalOpen = true;
   setTimeout(()=>{ renderTutStep(); }, 80);
 }
 function closeTutorial() {
@@ -1630,8 +1640,8 @@ function closeTutorial() {
   if (zh) zh.style.display='none';
   document.getElementById("tutOverlay").classList.remove("open");
   document.body.style.overflow="";
-  // Restore transition after reset
-  setTimeout(()=>{ if(zi) zi.style.transition=''; }, 50);
+  _modalOpen = false;
+  setTimeout(()=>{ if(zi) zi.style.transition=''; sendHeight(); }, 50);
 }
 
 
@@ -1767,7 +1777,11 @@ function togglePorteInfoSplit() {
   if (el) el.style.display = "block";
 }
 
-function sendHeight() { window.parent.postMessage({ type:"resize", height: document.body.scrollHeight }, "*"); }
+var _modalOpen = false;
+function sendHeight() {
+  if (_modalOpen) return;
+  window.parent.postMessage({ type:"resize", height: document.body.scrollHeight }, "*");
+}
 window.addEventListener("load", sendHeight);
 new MutationObserver(sendHeight).observe(document.body, { childList:true, subtree:true, attributes:true });
 setInterval(sendHeight, 500);
